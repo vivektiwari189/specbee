@@ -1,0 +1,7 @@
+site_location.location_timezone:
+  path: '/site_location/form/default'
+  defaults:
+    _form: '\Drupal\site_location\Form\DefaultForm'
+    _title: 'DefaultForm'
+  requirements:
+    _access: 'TRUE'
