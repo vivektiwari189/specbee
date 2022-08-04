@@ -38,7 +38,7 @@ class DefaultForm extends FormBase {
       '#maxlength' => 64,
       '#size' => 64,
       '#weight' => '0',
-      '#required' => TRUE,
+      //'#required' => TRUE,
       '#default_value' => $config->get('country'),
     ];
     $form['city'] = [
@@ -47,7 +47,7 @@ class DefaultForm extends FormBase {
       '#maxlength' => 64,
       '#size' => 64,
       '#weight' => '0',
-      '#required' => TRUE,
+      //'#required' => TRUE,
       '#default_value' => $config->get('city'),
     ];
     $timezone_name = [
@@ -68,7 +68,7 @@ class DefaultForm extends FormBase {
       '#default_value' => $config->get('timezone'),
       '#options' => $timezone_name,
       '#weight' => '0',
-      '#required' => TRUE,
+      //'#required' => TRUE,
     ];
     $form['submit'] = [
       '#type' => 'submit',
@@ -105,7 +105,7 @@ class DefaultForm extends FormBase {
 	  ->set('date', $date)
       ->save();
 
-    $this->messenger()->addStatus(t('Current time in %city (%country) is %date.', [
+    $this->messenger()->addStatus(t('Current time %city %country is %date.', [
       '%city' => $form_state->getValue('city'),
       '%country' => $form_state->getValue('country'),
       '%date' => $date,

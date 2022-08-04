@@ -19,17 +19,11 @@ class DefaultBlock extends BlockBase {
    */
   public function build() {
 	  
-	$config = \Drupal::getContainer()->get('config.factory')->getEditable('defaultform.adminsettings');  
-    /*$build = [];
-    $build['#theme'] = 'default_block';
-    $build['default_block']['#markup'] = t('Current time in %city (%country) is %date.', ['%city' =>$config->get('city'),'%country' =>$config->get('country'),'%date' =>$config->get('date')]);
-	$build['default_block']['#cache'] = array('tags' => [
-            'config:defaultform.adminsettings'   
-         ]);*/
+	$config = \Drupal::getContainer()->get('config.factory')->getEditable('defaultform.adminsettings');
 	return [
     '#theme' => 'default_block',
     //'#current_time' => $this->ss->get_currenttime(),
-    '#markup' => t('Current time in %city (%country) is %date.', ['%city' =>$config->get('city'),'%country' =>$config->get('country'),'%date' =>$config->get('date')]),
+    '#markup' => t('Current time %city %country is %date.', ['%city' =>$config->get('city'),'%country' =>$config->get('country'),'%date' =>$config->get('date')]),
 	'#country' => $config->get('country'),
     '#city' => $config->get('city'),
     '#date' => $config->get('date'),
@@ -39,8 +33,5 @@ class DefaultBlock extends BlockBase {
          ],   
        ],
     ];
-
-    //return $build;
   }
-
 }
